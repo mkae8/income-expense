@@ -2,5 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "env": "^0.0.2",
+    "express": "^4.21.0",
+    "nodemon": "^3.1.4",
+    "uuid": "^10.0.0"
+  }
 }
