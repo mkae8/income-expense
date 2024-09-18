@@ -2,11 +2,11 @@ import bcrypt from "bcrypt";
 import fs from "fs";
 
 export const signupController = async (req, res) => {
-  const { username, email, password, rePassword } = req.body;
+  const { name, email, password, rePassword } = req.body;
   const resultJson = await fs.readFileSync("./db.json", "utf-8");
   const result = JSON.parse(resultJson);
 
-  const user = result.users.find((el) => el.username === username);
+  const user = result.users.find((el) => el.email === email);
 
   console.log(user);
 
@@ -16,7 +16,7 @@ export const signupController = async (req, res) => {
   }
   const hashedPassword = bcrypt.hashSync(password, 10);
   result.users.push({
-    username,
+    name,
     email,
     rePassword,
     password,

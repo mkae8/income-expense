@@ -13,7 +13,7 @@ export const Signup = () => {
   const { push } = useRouter();
   const [error, setError] = useState();
   const [userDetail, setUserData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
     rePassword: "",
@@ -22,20 +22,25 @@ export const Signup = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData({ ...userDetail, [name]: value });
-    console.log(userDetail);
   };
 
   const handleSignUpClick = async () => {
-    if (userDetail.password === userDetail.rePassword) {
-      try {
-        const result = await axios.post(
-          "http://localhost:8000/api/user/signup",
-          userDetail
-        );
-      } catch (error) {
-        setError(error.response.data);
-      }
+    if (userDetail.password !== userDetail.rePassword) {
+      setError("Passwords do not match");
+      return;
     }
+    try {
+      const result = await axios.post(
+        "http://localhost:8000/api/user/signup",
+        userDetail
+      );
+      console.log(result.data);
+      push("/login");
+    } catch (error) {
+      setError(error.response.data);
+    }
+
+    console.log(userDetail);
   };
 
   return (
@@ -54,7 +59,7 @@ export const Signup = () => {
               <Input
                 type="text"
                 placeholder={"Name"}
-                name="username"
+                name="name"
                 onChange={handleChange}
               />
               <Input
@@ -75,7 +80,9 @@ export const Signup = () => {
                 placeholder={"Re-Password"}
                 name="rePassword"
               />
-              <h1 className="text-red-700 ">{error}</h1>
+              <h1 className="text-red-700 flex justify-center items-center ">
+                {error}
+              </h1>
               <Button text={"Sign Up"} clickHandler={handleSignUpClick} />
             </div>
             <Bottom text={"Already have account?"} login={"Log in"} />

@@ -1,11 +1,25 @@
 {
   "users": [
     {
-      "username": "iregenA",
-      "email": "irgen@gmail.com",
-      "rePassword": "1",
-      "password": "1",
-      "Hashedpassword": "$2b$10$vfyPipvDRPqVTpFLLh7ndOPK7K7kspDsun1ARtt1fnE2ykfIDkMUe"
+      "name": "uzhu",
+      "email": "uzhu@gmail.com",
+      "rePassword": "123",
+      "password": "123",
+      "Hashedpassword": "$2b$10$3AWqoaHTgwIzAVqFTKx78ORGRN3uST7EtQUiK9kAsrScFWBgeMkL6"
+    },
+    {
+      "name": "mka",
+      "email": "mka@gmail.com",
+      "rePassword": "123",
+      "password": "123",
+      "Hashedpassword": "$2b$10$pCkx7LhrekfXjuHcAblYjOB6nnDfhyj.3AYpUVhq6XhzwoPEjmy6S"
+    },
+    {
+      "name": "norovoo",
+      "email": "norov@gmail.com",
+      "rePassword": "123",
+      "password": "123",
+      "Hashedpassword": "$2b$10$wGIGYWBMgKudIbv7IP83kuVc2xA9HL5yiY77mO1gXSOrGvz037pGC"
     }
   ]
 }
