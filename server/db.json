@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "username": "iregenA",
+      "email": "irgen@gmail.com",
+      "rePassword": "1",
+      "password": "1",
+      "Hashedpassword": "$2b$10$vfyPipvDRPqVTpFLLh7ndOPK7K7kspDsun1ARtt1fnE2ykfIDkMUe"
+    }
+  ]
+}

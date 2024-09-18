@@ -7,12 +7,10 @@ env.config();
 
 const app = express();
 const port = process.env.PORT;
-
 app.use(cors());
 app.use(express.json());
-
-app.use("/api", userRouter);
+app.use("/api/user", userRouter);
 
 app.listen(port, () => {
-  console.log(`nee deer asna http://localhost:${port}`);
+  console.log(`http://localhost:${port}`);
 });
