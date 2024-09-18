@@ -21,27 +21,23 @@ export const Login = () => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const handlelogInClick = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (!userData.password) {
-      setError("Password cannot be empty");
-      return;
-    }
 
     try {
       const result = await axios.post(
         "http://localhost:8000/api/user/login",
         userData
       );
-      console.log(result.data);
-      push("/loading");
+      console.log(result);
+
+      push("/");
     } catch (error) {
       console.log(error);
+
       setError(error.response.data);
     }
   };
-
   return (
     <>
       <div className="flex justify-center items-center">
@@ -54,7 +50,7 @@ export const Login = () => {
             />
             <form
               className="w-[384px] flex flex-col h-[176px] gap-4"
-              onSubmit={handlelogInClick}
+              onSubmit={handleSubmit}
             >
               <Input
                 type="email"

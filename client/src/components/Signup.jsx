@@ -11,8 +11,8 @@ import { useState } from "react";
 
 export const Signup = () => {
   const { push } = useRouter();
-  const [error, setError] = useState();
-  const [userDetail, setUserData] = useState({
+  const [error, setError] = useState("");
+  const [userDetail, setUserDetail] = useState({
     name: "",
     email: "",
     password: "",
@@ -21,12 +21,11 @@ export const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setUserData({ ...userDetail, [name]: value });
+    setUserDetail({ ...userDetail, [name]: value });
   };
-
-  const handleSignUpClick = async () => {
+  const handleSubmit = async () => {
     if (userDetail.password !== userDetail.rePassword) {
-      setError("Passwords do not match");
+      setError("Password do not match");
       return;
     }
     try {
@@ -39,7 +38,6 @@ export const Signup = () => {
     } catch (error) {
       setError(error.response.data);
     }
-
     console.log(userDetail);
   };
 
@@ -83,7 +81,7 @@ export const Signup = () => {
               <h1 className="text-red-700 flex justify-center items-center ">
                 {error}
               </h1>
-              <Button text={"Sign Up"} clickHandler={handleSignUpClick} />
+              <Button text={"Sign Up"} clickHandler={handleSubmit} />
             </div>
             <Bottom text={"Already have account?"} login={"Log in"} />
           </div>
