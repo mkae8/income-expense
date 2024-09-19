@@ -43,7 +43,7 @@ export const Signup = () => {
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className="flex  justify-center items-center w-[708px] h-screen ">
+        <div className="flex  justify-center items-center w-screen h-screen ">
           <div className="w-[384px] h-[554px] flex flex-col justify-center items-center gap-10">
             <HeadLogoText />
 
@@ -85,7 +85,7 @@ export const Signup = () => {
             <Bottom text={"Already have account?"} login={"Log in"} />
           </div>
         </div>
-        <div className="bg-[#0166FF] w-[708px] h-screen"></div>
+        <div className="bg-[#0166FF] w-screen h-screen"></div>
       </div>
     </>
   );

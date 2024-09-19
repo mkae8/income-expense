@@ -1,25 +1,16 @@
 {
   "users": [
     {
-      "name": "uzhu",
-      "email": "uzhu@gmail.com",
-      "rePassword": "123",
-      "password": "123",
-      "Hashedpassword": "$2b$10$3AWqoaHTgwIzAVqFTKx78ORGRN3uST7EtQUiK9kAsrScFWBgeMkL6"
+      "userId": "f3572f7b-c3c0-4e8b-ab04-bcff46098628",
+      "name": "irgena",
+      "email": "irgen@gmail.com",
+      "password": "$2b$11$DLDT7StdE0Vq/EbwHtrk3uZk2/kJ1xFMr/D52t2cNCO7mTCvXrqjK"
     },
     {
+      "userId": "3ad181bd-8424-4bc5-b4f8-693bc7b3a769",
       "name": "mka",
       "email": "mka@gmail.com",
-      "rePassword": "123",
-      "password": "123",
-      "Hashedpassword": "$2b$10$pCkx7LhrekfXjuHcAblYjOB6nnDfhyj.3AYpUVhq6XhzwoPEjmy6S"
-    },
-    {
-      "name": "norovoo",
-      "email": "norov@gmail.com",
-      "rePassword": "123",
-      "password": "123",
-      "Hashedpassword": "$2b$10$wGIGYWBMgKudIbv7IP83kuVc2xA9HL5yiY77mO1gXSOrGvz037pGC"
+      "password": "$2b$11$ysWOFRf/U6PTAmBiGNOBFO/rASoEC2smL4FNVB.DlfvvX9F.qM0OO"
     }
   ]
 }

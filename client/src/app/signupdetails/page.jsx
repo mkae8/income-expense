@@ -1,5 +1,11 @@
+import { FirstStep } from "@/components/signupSteps/FirstStep";
+
 const SignupDetails = () => {
-  return <div>SignupDetails</div>;
+  return (
+    <div>
+      <FirstStep />
+    </div>
+  );
 };
 
 export default SignupDetails;

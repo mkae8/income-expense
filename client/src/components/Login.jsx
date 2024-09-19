@@ -37,7 +37,7 @@ export const Login = () => {
       setTimeout(() => {
         setLoading(false);
         push("/signupdetails");
-      }, 1000);
+      });
     } catch (error) {
       console.log(error);
       setError(error.response.data);
@@ -48,8 +48,8 @@ export const Login = () => {
   return (
     <>
       {loading && <Loading />}
-      <div className="flex justify-center items-center">
-        <div className="flex justify-center items-center w-[708px] h-screen">
+      <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center w-screen h-screen">
           <div className="w-[384px] h-[554px] flex flex-col justify-center items-center gap-10">
             <HeadLogoText />
             <HeadText
@@ -82,7 +82,7 @@ export const Login = () => {
             <Bottom text={"Don’t have account?"} signup={"Sign Up"} />
           </div>
         </div>
-        <div className="bg-[#0166FF] w-[708px] h-screen"></div>
+        <div className="bg-[#0166FF] w-screen h-screen"></div>
       </div>
     </>
   );

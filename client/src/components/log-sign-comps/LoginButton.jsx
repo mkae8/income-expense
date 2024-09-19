@@ -5,7 +5,7 @@ export const Button = ({ text, clickHandler }) => {
     <div>
       <button
         type="submit"
-        className="btn btn-block text-white w-[384px] h-12 rounded-[20px] bg-[#0166FF]"
+        className="btn  text-white w-[384px] h-12 rounded-[20px] text-[20px] font-normal bg-[#0166FF]"
         onClick={clickHandler}
       >
         {text}

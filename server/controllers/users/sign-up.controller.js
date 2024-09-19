@@ -1,27 +1,38 @@
 import bcrypt from "bcrypt";
 import fs from "fs";
+import env from "dotenv";
+import { v4 as uuidv4 } from "uuid";
+
+env.config();
 
 export const signupController = async (req, res) => {
-  const { name, email, password, rePassword } = req.body;
+  const { name, password, email } = req.body;
+  if (!username || !password || email) {
+    res.send("Invalid inputs").status(400);
+    return;
+  }
   const resultJson = await fs.readFileSync("./db.json", "utf-8");
   const result = JSON.parse(resultJson);
 
   const user = result.users.find((el) => el.email === email);
 
-  console.log(user);
-
   if (user) {
-    res.status(400).send("ner n davhtsaj bn");
+    res.status(400).send("iim email burtgeltei bnaa");
     return;
   }
-  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  const hashedpassword = await bcrypt.hashSync(
+    password,
+    Number(process.env.SALT)
+  );
   result.users.push({
+    userId: uuidv4(),
     name,
     email,
-    rePassword,
-    password,
-    Hashedpassword: hashedPassword,
+    password: hashedpassword,
   });
+
   await fs.writeFileSync("./db.json", JSON.stringify(result), "utf-8");
-  res.send("Success");
+
+  res.send("amjilttai nemegdlee").status(200);
 };
