@@ -1,5 +1,4 @@
 "use client";
-
 import { Bottom } from "@/components/log-sign-comps/Bottom";
 import HeadLogoText from "@/components/log-sign-comps/HeadLogoText";
 import { HeadText } from "@/components/log-sign-comps/HeadText";

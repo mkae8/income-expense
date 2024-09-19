@@ -5,8 +5,9 @@ import { HeadText } from "@/components/log-sign-comps/HeadText";
 import { Input } from "@/components/log-sign-comps/Input";
 import { Button } from "@/components/log-sign-comps/LoginButton";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Loading } from "@/components/Loading";
 
 export const Login = () => {
   const { push } = useRouter();
@@ -14,6 +15,7 @@ export const Login = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (event) => {
@@ -23,23 +25,29 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
     try {
       const result = await axios.post(
         "http://localhost:8000/api/user/login",
         userData
       );
-      console.log(result);
+      console.log(result.data);
 
-      push("/");
+      setTimeout(() => {
+        setLoading(false);
+        push("/signupdetails");
+      }, 1000);
     } catch (error) {
       console.log(error);
-
       setError(error.response.data);
+      setLoading(false);
     }
   };
+
   return (
     <>
+      {loading && <Loading />}
       <div className="flex justify-center items-center">
         <div className="flex justify-center items-center w-[708px] h-screen">
           <div className="w-[384px] h-[554px] flex flex-col justify-center items-center gap-10">
