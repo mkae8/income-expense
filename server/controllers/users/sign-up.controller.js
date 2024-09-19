@@ -7,7 +7,7 @@ env.config();
 
 export const signupController = async (req, res) => {
   const { name, password, email } = req.body;
-  if (!username || !password || email) {
+  if (!name || !password || email) {
     res.send("Invalid inputs").status(400);
     return;
   }
