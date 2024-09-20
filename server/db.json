@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "userId": "f3572f7b-c3c0-4e8b-ab04-bcff46098628",
-      "name": "irgena",
-      "email": "irgen@gmail.com",
-      "password": "$2b$11$DLDT7StdE0Vq/EbwHtrk3uZk2/kJ1xFMr/D52t2cNCO7mTCvXrqjK"
-    },
-    {
-      "userId": "3ad181bd-8424-4bc5-b4f8-693bc7b3a769",
+      "userId": "b77879f5-dbbb-4aba-bee8-0607a052773a",
       "name": "mka",
       "email": "mka@gmail.com",
-      "password": "$2b$11$ysWOFRf/U6PTAmBiGNOBFO/rASoEC2smL4FNVB.DlfvvX9F.qM0OO"
+      "password": "$2b$11$Tvfn4jGgWfaf3cc2ADzBuOzZJqYhto1wzA2wXXXyOnf8OC/hrVVYe"
+    },
+    {
+      "userId": "9c9a1786-2127-441b-9e32-f1a930a1a616",
+      "name": "irgena",
+      "email": "irgenA@gmail.com",
+      "password": "$2b$11$BHhI0jLNHINXcXBHwrjNvOwWcahTSe0jYKxNf2uRN/V7sMFUw/rES"
     }
   ]
 }

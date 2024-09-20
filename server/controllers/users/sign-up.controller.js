@@ -7,10 +7,6 @@ env.config();
 
 export const signupController = async (req, res) => {
   const { name, password, email } = req.body;
-  if (!name || !password || email) {
-    res.send("Invalid inputs").status(400);
-    return;
-  }
   const resultJson = await fs.readFileSync("./db.json", "utf-8");
   const result = JSON.parse(resultJson);
 

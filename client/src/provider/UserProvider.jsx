@@ -1,14 +1,50 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
-  return <UserContext.Provider value={{}}>{children}</UserContext.Provider>;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { push } = useRouter();
+  const loginHandler = async (email, password) => {
+    try {
+      const { data } = await axios.post(
+        "http://localhost:8000/api/user/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      const token = data.token;
+      window.localStorage.setItem("token", token);
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.log(error);
+      throw new Error(error.response.data);
+    }
+  };
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+      // push("/");
+    } else {
+      setIsLoggedIn(false);
+      push("/login");
+    }
+  }, []);
+  return (
+    <UserContext.Provider value={{ loginHandler, isLoggedIn }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
-export const useAncestor = () => {
-  const ancestor = useContext(UserContext);
-  return ancestor;
+export const useUser = () => {
+  const user = useContext(UserContext);
+  return user;
 };

@@ -8,7 +8,7 @@ export const Loading = () => {
       <div className="w-[172px] h-[184px] flex justify-between items-center flex-col ">
         <HeadLogoText />
         <div className="flex flex-col justify-center items-center gap-4">
-          <span className="loading loading-spinner loading-lg "></span>
+          <span className="loading loading-spinner loading-lg bg-blue-500 "></span>
           <p> Түр хүлээнэ үү...</p>
         </div>
       </div>

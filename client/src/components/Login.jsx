@@ -5,19 +5,26 @@ import { HeadText } from "@/components/log-sign-comps/HeadText";
 import { Input } from "@/components/log-sign-comps/Input";
 import { Button } from "@/components/log-sign-comps/LoginButton";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Loading } from "@/components/Loading";
+import { useUser } from "@/provider/UserProvider";
 
 export const Login = () => {
   const { push } = useRouter();
+  const { loginHandler, isLoggedIn } = useUser();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      push("/signupdetails");
+    }
+  }, [1000]);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData({ ...userData, [name]: value });
@@ -26,23 +33,14 @@ export const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-
     try {
-      const result = await axios.post(
-        "http://localhost:8000/api/user/login",
-        userData
-      );
-      console.log(result.data);
-
-      setTimeout(() => {
-        setLoading(false);
-        push("/signupdetails");
-      });
+      await loginHandler(userData.email, userData.password);
+      push("/signupdetails");
     } catch (error) {
       console.log(error);
-      setError(error.response.data);
-      setLoading(false);
+      setError("Incorrect email or password");
     }
+    setLoading(false);
   };
 
   return (
