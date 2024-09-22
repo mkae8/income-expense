@@ -11,7 +11,7 @@ export const FirstStep = ({ clickHandler }) => {
 
   const nextStep = () => {
     if (!selectedCurrency) {
-      alert("Please select a currency.");
+      alert("Valiut aa songono uu");
       return;
     }
     clickHandler();

@@ -18,7 +18,7 @@ export const Login = () => {
     if (isLoggedIn) {
       push("/signupdetails");
     }
-  }, [1000]);
+  }, []);
   const [userData, setUserData] = useState({
     email: "",
     password: "",

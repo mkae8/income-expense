@@ -7,7 +7,7 @@ import { Button } from "../log-sign-comps/LoginButton";
 import { Input } from "../log-sign-comps/Input";
 
 export const SecondStep = ({ clickHandler }) => {
-  const [balance, setBalance] = useState("");
+  const [balance, setBalance] = useState("0");
 
   const next = () => {
     const parsedBalance = parseFloat(balance);
