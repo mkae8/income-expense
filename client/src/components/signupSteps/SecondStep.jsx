@@ -2,27 +2,26 @@
 import { useState } from "react";
 import { FaCoins } from "react-icons/fa6";
 import HeadLogoText from "../log-sign-comps/HeadLogoText";
-import { Step } from "./Step";
+import { StepTwo } from "./StepTwo";
 import { Button } from "../log-sign-comps/LoginButton";
 import { Input } from "../log-sign-comps/Input";
 
 export const SecondStep = ({ clickHandler }) => {
-  const [balance, setBalance] = useState("0");
+  const [balance, setBalance] = useState("");
 
-  const next = () => {
-    const parsedBalance = parseFloat(balance);
-    if (isNaN(parsedBalance) || parsedBalance <= 0) {
+  const nextStep = () => {
+    if (balance === 0) {
       alert("Please enter a valid cash balance.");
       return;
     }
-    clickHandler(parsedBalance);
+    clickHandler();
   };
 
   return (
     <div className="flex flex-col items-center w-full h-screen justify-center border relative">
       <div className="w-[320px] h-[136px] justify-between items-center flex flex-col absolute top-[40px]">
         <HeadLogoText />
-        <Step />
+        <StepTwo />
       </div>
       <div className="w-[384px] h-[308px] flex flex-col justify-between items-center">
         <div className="flex items-center flex-col">
@@ -36,10 +35,9 @@ export const SecondStep = ({ clickHandler }) => {
           value={balance}
           onChange={(e) => setBalance(e.target.value)}
           type="number"
-          aria-label="Cash balance input"
         />
         <p className="text-[12px]">How much cash do you have in your wallet?</p>
-        <Button text={"Confirm"} clickHandler={next} />
+        <Button text={"Confirm"} clickHandler={nextStep} />
       </div>
     </div>
   );

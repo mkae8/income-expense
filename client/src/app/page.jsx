@@ -1,8 +1,7 @@
-import { SecondStep } from "@/components/signupSteps/SecondStep";
-import React from "react";
+import { HomePage } from "@/components/HomePage";
 
 const Home = () => {
-  return <div>Home page</div>;
+  return <HomePage />;
 };
 
 export default Home;
