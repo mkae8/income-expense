@@ -12,16 +12,16 @@ export default function Page() {
   const [step, setStep] = useState(0);
   const StepComponents = steps[step];
 
-  const continueHandler1 = () => {
+  const continueHandler = () => {
     if (step === 2) {
-      push();
+      push("/");
       return;
     }
     setStep((prev) => prev + 1);
   };
   return (
     <div>
-      <StepComponents push={continueHandler1} />
+      <StepComponents clickHandler={continueHandler} />
     </div>
   );
 }

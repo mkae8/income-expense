@@ -35,7 +35,7 @@ export const Signup = () => {
       console.log(result.data);
       push("/login");
     } catch (error) {
-      setError(error.response.data);
+      setError("Buruu bn");
     }
     console.log(userDetail);
   };
