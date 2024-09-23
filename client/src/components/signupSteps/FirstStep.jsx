@@ -8,13 +8,28 @@ import { GrCurrency } from "react-icons/gr";
 
 export const FirstStep = ({ clickHandler }) => {
   const [selectedCurrency, setSelectedCurrency] = useState("");
+  const currencyHandler = (event) => {
+    event.preventDefault();
+    setSelectedCurrency(event.target.value);
+    console.log(event.target.value);
+  };
 
-  const nextStep = () => {
-    if (!selectedCurrency) {
-      alert("Must select one currency");
-      return;
-    }
-    clickHandler();
+  const nextStep = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      await axios.post(
+        "http://localhost:8000/currency",
+        {
+          currency: selectedCurrency,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      clickHandler();
+    } catch (error) {}
   };
 
   return (
@@ -30,7 +45,7 @@ export const FirstStep = ({ clickHandler }) => {
           </div>
         </div>
         <p className="text-[24px] font-semibold">Select base currency</p>
-        <Select onChange={setSelectedCurrency} value={selectedCurrency} />
+        <Select onChange={currencyHandler} value={selectedCurrency} />
         <p className="text-[12px]">
           Your base currency should be the one you use most often. All
           transactions in other currencies will be calculated based on this one.

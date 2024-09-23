@@ -6,8 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 env.config();
 
 export const signupController = async (req, res) => {
+  const dbPath = "/Users/24LP9087/Desktop/income&expenseTracker/server/db.json";
   const { name, password, email } = req.body;
-  const resultJson = await fs.readFileSync("./db.json", "utf-8");
+  const resultJson = await fs.readFileSync(dbPath, "utf-8");
   const result = JSON.parse(resultJson);
 
   const user = result.users.find((el) => el.email === email);

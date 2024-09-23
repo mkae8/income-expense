@@ -1,7 +1,15 @@
+import { Graphical } from "@/components/dashboardComps/Graphical";
+import { Header } from "@/components/dashboardComps/Header";
+import { IncomeExpense } from "@/components/dashboardComps/IncomeExpense";
+
 const Dashboard = () => {
   return (
     <>
-      <div>haha</div>
+      <div className="w-screen flex flex-col justify-center items-center">
+        <Header />
+        <IncomeExpense currency={"10,000"} />
+        <Graphical />
+      </div>
     </>
   );
 };

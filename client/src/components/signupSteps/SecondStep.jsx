@@ -10,10 +10,6 @@ export const SecondStep = ({ clickHandler }) => {
   const [balance, setBalance] = useState("");
 
   const nextStep = () => {
-    if (balance === 0) {
-      alert("Please enter a valid cash balance.");
-      return;
-    }
     clickHandler();
   };
 

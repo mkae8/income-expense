@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -12,12 +13,19 @@ export const UserProvider = ({ children }) => {
   const loginHandler = async (email, password) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/user/login",
+        "http://localhost:8000/login",
         {
           email,
           password,
         }
+        // {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     Authorization: `${data}`,
+        //   },
+        // }
       );
+      console.log(data);
 
       const token = data.token;
       window.localStorage.setItem("token", token);
@@ -31,7 +39,7 @@ export const UserProvider = ({ children }) => {
     const token = window.localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
-      // push("/");
+      push("/signupdetails");
     } else {
       setIsLoggedIn(false);
       push("/login");

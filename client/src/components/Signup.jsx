@@ -29,7 +29,7 @@ export const Signup = () => {
     }
     try {
       const result = await axios.post(
-        "http://localhost:8000/api/user/signup",
+        "http://localhost:8000/signup",
         userDetail
       );
       console.log(result.data);
@@ -46,7 +46,6 @@ export const Signup = () => {
         <div className="flex  justify-center items-center w-screen h-screen ">
           <div className="w-[384px] h-[554px] flex flex-col justify-center items-center gap-10">
             <HeadLogoText />
-
             <HeadText
               headtext={"Create Geld account"}
               desc={"Sign up below to create your Wallet account"}

@@ -1,16 +1,23 @@
 {
   "users": [
     {
-      "userId": "b77879f5-dbbb-4aba-bee8-0607a052773a",
+      "userId": "8b92ef94-0d9c-4066-8276-4538b3d6468c",
       "name": "mka",
       "email": "mka@gmail.com",
-      "password": "$2b$11$Tvfn4jGgWfaf3cc2ADzBuOzZJqYhto1wzA2wXXXyOnf8OC/hrVVYe"
+      "password": "$2b$11$27ugVtNEqVMd1ls2sI2yieuOJxbNEgya9Lbexf4b8pd0NQumVmVDW"
     },
     {
-      "userId": "b52a1ab2-8fe1-40c7-967c-709699a049c5",
-      "name": "gomboo",
-      "email": "gombo@gmail.com",
-      "password": "$2b$10$AO150DXcp6wjVFxtl09eEuJlY2xw/B31vDpBP4bxzGWVpV3edsVky"
+      "userId": "6e2772b2-b493-4080-9ae3-12abb4fa9e3c",
+      "name": "baldan",
+      "email": "baldka@gmail.com",
+      "password": "$2b$11$y3VdTpAHEL3F3jOW9smrpe6X2gql1VEDW/CtE6PGSMn9DkjdV4kIa",
+      "currency": "mnt"
+    },
+    {
+      "userId": "1b485458-3e3f-403a-9adf-256399f9a163",
+      "name": "tsno",
+      "email": "tsno@gmail.com",
+      "password": "$2b$11$8j/uKng1mA6O8BQnW7l7HubTnPvuBsHYSyEYrdfPs6E7qqPOV7K3y"
     }
   ]
 }
