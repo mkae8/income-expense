@@ -1,7 +1,8 @@
 import fs from "fs";
 
 export const currencyController = async (req, res) => {
-  const { currency, userId } = req.body;
+  const { currency } = req.body;
+  const { userId } = res.locals;
 
   const dbPath = "/Users/24LP9087/Desktop/income&expenseTracker/server/db.json";
 
@@ -17,5 +18,5 @@ export const currencyController = async (req, res) => {
 
   await fs.writeFileSync(dbPath, JSON.stringify(result), "utf-8");
 
-  res.status(200).json("Successfully updated currency for user");
+  res.status(200).send("Successfully updated currency for user");
 };

@@ -5,12 +5,33 @@ import HeadLogoText from "../log-sign-comps/HeadLogoText";
 import { StepTwo } from "./StepTwo";
 import { Button } from "../log-sign-comps/LoginButton";
 import { Input } from "../log-sign-comps/Input";
+import axios from "axios";
 
 export const SecondStep = ({ clickHandler }) => {
-  const [balance, setBalance] = useState("");
+  const [balance, setBalance] = useState(0);
 
-  const nextStep = () => {
-    clickHandler();
+  const balanceHandler = (event) => {
+    event.preventDefault();
+    setBalance(event.target.value);
+  };
+
+  const nextStep = async () => {
+    if (balance <= 0) {
+      alert("Mungun dun 0 ees deesh baih! ");
+      return;
+    }
+    try {
+      const token = localStorage.getItem("token");
+      await axios.post(
+        "http://localhost:8000/balance",
+        { balance: balance },
+        { headers: { Authorization: ` Bearer ${token}` } }
+      );
+      clickHandler();
+      console.log("nemegsen");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -28,8 +49,9 @@ export const SecondStep = ({ clickHandler }) => {
         <p className="text-[24px] font-semibold">Set up your cash balance</p>
         <Input
           placeholder={"Balance"}
-          value={balance}
-          onChange={(e) => setBalance(e.target.value)}
+          // value={balance}
+          // onChange={(e) => setBalance(e.target.value)}
+          onChange={balanceHandler}
           type="number"
         />
         <p className="text-[12px]">How much cash do you have in your wallet?</p>

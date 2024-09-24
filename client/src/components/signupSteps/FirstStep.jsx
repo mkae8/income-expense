@@ -5,6 +5,7 @@ import { Button } from "../log-sign-comps/LoginButton";
 import { Select } from "./Select";
 import { Step } from "./Step";
 import { GrCurrency } from "react-icons/gr";
+import axios from "axios";
 
 export const FirstStep = ({ clickHandler }) => {
   const [selectedCurrency, setSelectedCurrency] = useState("");
@@ -15,9 +16,12 @@ export const FirstStep = ({ clickHandler }) => {
   };
 
   const nextStep = async () => {
+    if (!selectedCurrency) {
+      alert("Select yout currency");
+      return;
+    }
     try {
       const token = localStorage.getItem("token");
-
       await axios.post(
         "http://localhost:8000/currency",
         {
@@ -29,7 +33,9 @@ export const FirstStep = ({ clickHandler }) => {
       );
 
       clickHandler();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

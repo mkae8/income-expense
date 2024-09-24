@@ -1,4 +1,3 @@
-
 export const Step = () => {
   return (
     <div className="">

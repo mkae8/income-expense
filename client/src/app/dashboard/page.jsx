@@ -7,7 +7,7 @@ const Dashboard = () => {
     <>
       <div className="w-screen flex flex-col justify-center items-center">
         <Header />
-        <IncomeExpense currency={"10,000"} />
+        <IncomeExpense />
         <Graphical />
       </div>
     </>

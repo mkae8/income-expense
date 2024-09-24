@@ -4,7 +4,6 @@ import HeadLogoText from "@/components/log-sign-comps/HeadLogoText";
 import { HeadText } from "@/components/log-sign-comps/HeadText";
 import { Input } from "@/components/log-sign-comps/Input";
 import { Button } from "@/components/log-sign-comps/LoginButton";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Loading } from "@/components/Loading";
@@ -16,7 +15,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      push("/signupdetails");
+      push("/dashboard");
     }
   }, []);
   const [userData, setUserData] = useState({

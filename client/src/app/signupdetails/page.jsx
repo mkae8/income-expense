@@ -14,7 +14,7 @@ export default function Page() {
 
   const continueHandler = () => {
     if (step === 2) {
-      push("/");
+      push("/dashboard");
       return;
     }
     setStep((prev) => prev + 1);
