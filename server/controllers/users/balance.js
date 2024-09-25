@@ -10,9 +10,9 @@ export const balanceController = async (req, res) => {
   const result = JSON.parse(resultJson);
   const user = result.users.find((el) => el.userId === userId);
 
-  //   user.balance = balance;
+  user.balance = balance;
 
-  //   await fs.writeFileSync(dbPath, JSON.stringify(result), "utf-8");
+  await fs.writeFileSync(dbPath, JSON.stringify(result), "utf-8");
 
   res.send(user);
 };

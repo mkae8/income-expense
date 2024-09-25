@@ -13,9 +13,10 @@ export const IncomeExpense = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const response = await axios("http://localhost:8000/balance", {
+        const response = await axios.get("http://localhost:8000/user", {
           headers: { Authorization: `Bearer ${token}` },
         });
+        console.log(response.data);
 
         setBalance(response.data.balance);
       } catch (error) {

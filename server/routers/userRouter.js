@@ -13,8 +13,8 @@ const userRouter = Router();
 
 userRouter.route("/signup").post(signupController);
 userRouter.route("/login").post(loginController);
-userRouter.post("/users", authMiddleware, getUserById);
+userRouter.get("/user", authMiddleware, getUserById);
 userRouter.post("/currency", authMiddleware, currencyController);
-userRouter.get("/balance", authMiddleware, balanceController);
+userRouter.post("/balance", authMiddleware, balanceController);
 
 export default userRouter;

@@ -39,7 +39,7 @@ export const UserProvider = ({ children }) => {
     const token = window.localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
-      push("/signupdetails");
+      push("/dashboard");
     } else {
       setIsLoggedIn(false);
       push("/login");
