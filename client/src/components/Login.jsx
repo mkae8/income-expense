@@ -26,6 +26,7 @@ export const Login = () => {
   const [error, setError] = useState("");
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setUserData({ ...userData, [name]: value });
   };
 

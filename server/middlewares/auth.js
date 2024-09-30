@@ -7,7 +7,7 @@ export const authMiddleware = async (req, res, next) => {
   const token = req.headers.authorization;
 
   if (!token) {
-    return res.status(404).send({ message: "obso" });
+    return res.status(404).send({ message: "Token not provided" });
   }
 
   const jwtToken = token.split(" ")[1];
@@ -16,11 +16,11 @@ export const authMiddleware = async (req, res, next) => {
     return req.status(401).send({ message: "Token obso" });
   }
 
-  jwt.verify(jwtToken, process.env.SECRET, (err, success) => {
+  jwt.verify(jwtToken, process.env.SECRET, (err, decode) => {
     if (err) {
       return res.status(401).send({ message: err.message });
     } else {
-      res.locals.userId = success.id;
+      res.locals.userId = decode.userId;
       next();
     }
   });

@@ -1,12 +1,3 @@
 {
-  "users": [
-    {
-      "userId": "7d05c81c-ce25-4b42-9515-2da6650e035f",
-      "name": "baldan",
-      "email": "baldka@gmail.com",
-      "password": "$2b$11$h5o/JH8lAI/8Yw4O5R/DKO7QzdaetOflvgV1ooe41qVa7gbN6llTy",
-      "currency": "MNT - Mongolian Tugrik",
-      "balance": "123123"
-    }
-  ]
+  "users": []
 }

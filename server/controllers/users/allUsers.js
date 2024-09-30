@@ -15,5 +15,5 @@ export const getUserById = async (req, res) => {
     return;
   }
 
-  res.send(user);
+  res.send({ currency: user.currency, balance: user.balance });
 };

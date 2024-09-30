@@ -14,7 +14,6 @@ export const FirstStep = ({ clickHandler }) => {
     setSelectedCurrency(event.target.value);
     console.log(event.target.value);
   };
-
   const nextStep = async () => {
     if (!selectedCurrency) {
       alert("Select yout currency");
@@ -23,7 +22,7 @@ export const FirstStep = ({ clickHandler }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:8000/currency",
+        "http://localhost:8000/user/currency",
         {
           currency: selectedCurrency,
         },

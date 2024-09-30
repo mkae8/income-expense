@@ -8,7 +8,7 @@ import { Input } from "../log-sign-comps/Input";
 import axios from "axios";
 
 export const SecondStep = ({ clickHandler }) => {
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState("");
 
   const balanceHandler = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ export const SecondStep = ({ clickHandler }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:8000/balance",
+        "http://localhost:8000/user/balance",
         { balance: balance },
         { headers: { Authorization: ` Bearer ${token}` } }
       );
