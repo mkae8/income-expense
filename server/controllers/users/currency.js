@@ -1,22 +1,17 @@
-import fs from "fs";
+import { sql } from "../../database/index.js";
 
 export const currencyController = async (req, res) => {
   const { currency } = req.body;
-  const { userId } = res.locals;
+  const { userid } = res.locals;
 
-  const dbPath = "/Users/24LP9087/Desktop/income&expenseTracker/server/db.json";
+  // if (currency.length > 3) {
+  //   return res.status(400).send("Currency code must be 3 characters or less.");
+  // }
 
-  const resultJson = await fs.readFileSync(dbPath, "utf-8");
-  const result = JSON.parse(resultJson);
-
-  const user = result.users.find((user) => user.userId === userId);
-  if (!user) {
-    return res.status(404).send("User not found");
+  try {
+    await sql`UPDATE users SET currency=${currency} WHERE userid=${userid}`;
+    res.status(200).send({ message: "Successfully currency added" });
+  } catch (error) {
+    console.log(error.response.data);
   }
-
-  user.currency = currency;
-
-  await fs.writeFileSync(dbPath, JSON.stringify(result), "utf-8");
-
-  res.status(200).send("Successfully updated currency for user");
 };

@@ -22,22 +22,24 @@ export const Signup = () => {
     const { name, value } = event.target;
     setUserDetail({ ...userDetail, [name]: value });
   };
-  const handleSubmit = async () => {
+  const handeSubmit = async () => {
     if (userDetail.password !== userDetail.rePassword) {
-      setError("Password do not match");
+      setError("Passwords do not match");
       return;
     }
+
     try {
-      const result = await axios.post(
-        "http://localhost:8000/signup",
-        userDetail
-      );
-      console.log(result.data);
+      const result = await axios.post("http://localhost:8000/signup", {
+        username: userDetail.name,
+        password: userDetail.password,
+        email: userDetail.email,
+      });
+      console.log();
+
       push("/login");
     } catch (error) {
-      setError("Buruu bn");
+      setError("error");
     }
-    console.log(userDetail);
   };
 
   return (
@@ -79,7 +81,7 @@ export const Signup = () => {
               <h1 className="text-red-700 flex justify-center items-center ">
                 {error}
               </h1>
-              <Button text={"Sign Up"} clickHandler={handleSubmit} />
+              <Button text={"Sign Up"} clickHandler={handeSubmit} />
             </div>
             <Bottom text={"Already have account?"} login={"Log in"} />
           </div>

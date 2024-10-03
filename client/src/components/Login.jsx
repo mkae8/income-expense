@@ -59,7 +59,7 @@ export const Login = () => {
               onSubmit={handleSubmit}
             >
               <Input
-                type="email"
+                type="text"
                 name="email"
                 value={userData.email}
                 placeholder="Email"

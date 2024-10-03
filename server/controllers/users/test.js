@@ -27,8 +27,8 @@ export const testController = async (req, res) => {
   //   }
   //   res.status(200).send("User successfully deleted");
   // ---> UPDATE updates data in database
-//   const { email } = req.body;
-//   const result =
-//     await sql`UPDATE users SET username = 'zolboosda' WHERE email= ${email}`;
-//   res.status(200).send("User successfully updated");
-}
+  //   const { email } = req.body;
+  //   const result =
+  //     await sql`UPDATE users SET username = 'mkae' WHERE email= ${email}`;
+  //   res.status(200).send("User successfully updated");
+};

@@ -1,36 +1,32 @@
+
+
 import bcrypt from "bcrypt";
-import fs from "fs/promises";
 import jwt from "jsonwebtoken";
 import env from "dotenv";
+import { sql } from "../../database/index.js";
 
 env.config();
 
 export const loginController = async (req, res) => {
-  const { email, password } = req.body;
+  const { password, email } = req.body;
 
-  const dbPath = "/Users/24LP9087/Desktop/income&expenseTracker/server/db.json";
+  const user = await sql(`SELECT * FROM users WHERE email='${email}'`);
 
-  const resultJson = await fs.readFile(dbPath, "utf-8");
-  const result = JSON.parse(resultJson);
-
-  const user = result.users.find((el) => el.email === email);
-
-  if (!user) {
-    return res.status(400).send("Email not registered");
+  if (user.length == 0) {
+    res.status(400).send("Username or password wrong");
+    return;
   }
 
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = await bcrypt.compare(password, user[0].password);
+
   if (!isMatch) {
-    return res.status(400).send("Incorrect password");
+    res.status(400).send("Username or password wrong");
+    return;
   }
 
-  const token = jwt.sign(
-    { id: user.userId, email: user.email },
-    process.env.SECRET,
-    {
-      expiresIn: "1h",
-    }
-  );
+  const token = await jwt.sign({ userId: user[0].useid }, process.env.SECRET, {
+    expiresIn: "1d",
+  });
 
-  res.send({ message: "Successfully logged in", token });
+  res.status(200).send({ massage: "Successfully logged in", token });
 };
